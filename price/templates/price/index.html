@@ -1,0 +1,338 @@
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      {% load static %}
+      {% load bootstrap4 %}
+      <link rel="stylesheet" type="text/css" href="{% static 'price/css/bootstrap.min.css' %}" />
+      <title>Car Price Prediction</title>
+   </head>
+   <style>
+      .register {
+      background: -webkit-gradient(linear, left top, right top, color-stop(0, #3931af), to(#00c6ff));
+      background: linear-gradient(to right, #3931af 0, #00c6ff 100%);
+      margin-top: 3%;
+      padding: 3%;
+      overflow: hidden;
+      }
+      .register .register-form {
+      padding: 10%;
+      margin-top: 10%;
+      }
+      @media (max-width: 991px) {
+      .register .register-form {
+      margin-top: 16%;
+      }
+      }
+      @media (max-width: 667px) {
+      .register .register-form {
+      margin-top: 20%;
+      }
+      }
+      .register .nav-tabs {
+      margin-top: 3%;
+      border: none;
+      background: #0062cc;
+      border-radius: 1.5rem;
+      width: 28%;
+      float: right;
+      }
+      @media (max-width: 991px) {
+      .register .nav-tabs {
+      width: 33%;
+      margin-top: 8%;
+      }
+      }
+      .register .nav-tabs .nav-link {
+      padding: 2%;
+      height: 34px;
+      font-weight: 600;
+      color: #fff;
+      border-top-right-radius: 1.5rem;
+      border-bottom-right-radius: 1.5rem;
+      }
+      .register .nav-tabs .nav-link:hover {
+      border: none;
+      }
+      .register .nav-tabs .nav-link.active {
+      width: 100px;
+      color: #0062cc;
+      border: 2px solid #0062cc;
+      border-top-left-radius: 1.5rem;
+      border-bottom-left-radius: 1.5rem;
+      }
+      .register-left {
+      text-align: center;
+      color: #fff;
+      margin-top: 4%;
+      }
+      .register-left input {
+      border: none;
+      border-radius: 1.5rem;
+      padding: 2%;
+      width: 60%;
+      background: #f8f9fa;
+      font-weight: bold;
+      color: #383d41;
+      margin-top: 30%;
+      margin-bottom: 3%;
+      cursor: pointer;
+      }
+      .register-left img {
+      margin-top: 15%;
+      margin-bottom: 5%;
+      width: 25%;
+      -webkit-animation: mover 1s infinite alternate;
+      animation: mover 1s infinite alternate;
+      }
+      .register-left p {
+      font-weight: lighter;
+      padding: 12%;
+      margin-top: -9%;
+      }
+      .register-right {
+      background: #f8f9fa;
+      border-top-left-radius: 10% 50%;
+      border-bottom-left-radius: 10% 50%;
+      }
+      @-webkit-keyframes mover {
+      0% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      }
+      100% {
+      -webkit-transform: translateY(-20px);
+      transform: translateY(-20px);
+      }
+      }
+      @keyframes mover {
+      0% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      }
+      100% {
+      -webkit-transform: translateY(-20px);
+      transform: translateY(-20px);
+      }
+      }
+      .btnRegister {
+      float: right;
+      margin-top: 10%;
+      border: none;
+      border-radius: 1.5rem;
+      padding: 2%;
+      background: #0062cc;
+      color: #fff;
+      font-weight: 600;
+      width: 50%;
+      cursor: pointer;
+      }
+      .register-heading {
+      text-align: center;
+      margin-top: 8%;
+      margin-bottom: -15%;
+      color: #495057;
+      }
+      @media (max-width: 991px) {
+      .register-heading {
+      font-size: 1.5rem;
+      }
+      }
+      *{margin:0;padding: 0;box-sizing: border-box;}
+      /*********************************/
+      @keyframes car{
+      100% {transform: translateX(2000px)}
+      }
+      @keyframes koleso{
+      100% {transform: translateX(2000px) rotate(2000deg)}
+      }
+      @keyframes title{
+      40% {opacity: 0;}
+      60%{opacity: 1;}
+      100%{opacity: 0;}
+      }
+      .title {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      margin: 0;
+      opacity: 0;
+      transform: translate(-50%,-50%);
+      animation: title 5s 0s linear infinite;
+      font-size: 36px;
+      background: #ffffff9e;
+      padding: 10px;
+      }
+      .main{
+      position: relative;
+      overflow: hidden;
+      }
+      .car-main {
+      position: relative;
+      display: inline-block;
+      transform: scale(1.3);
+      margin-top: 40px;
+      margin-bottom: 20px;
+      }
+      .koleso.left{
+      position: absolute;
+      left: 17px;
+      bottom: 13px;
+      }
+      .koleso.right{
+      position: absolute;
+      right: 19px;
+      bottom: 12px;
+      }
+      .koleso{
+      animation: koleso 5s 0s linear infinite;
+      }
+      .car{
+      animation: car 5s 0s linear  infinite;
+      }
+      .car-animation{
+      margin: 170px 0px;
+      padding-top:100px;
+      position: relative;
+      }
+      @media (min-width: 2001px){
+      .car-animation{
+      display: none;
+      }   
+      }
+      /***********cloud***************/
+      #cloud-scroll {
+      background: url(https://res.cloudinary.com/dy7vswxyy/image/upload/v1600847478/clouds_fajhnm.png) repeat-x;
+      top: -120px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      position: absolute;
+      -webkit-animation: 9000000s backgroundScroll infinite linear;
+      -moz-animation: 9000000s backgroundScroll infinite linear;
+      -o-animation: 9000000s backgroundScroll infinite linear;
+      -ms-animation: 9000000s backgroundScroll infinite linear;
+      animation: 9000000s backgroundScroll infinite linear;
+      z-index: -1;
+      }
+      @-webkit-keyframes backgroundScroll {
+      from {
+      background-position: 0 0;
+      }
+      to {
+      background-position: -99999999px 0;
+      }
+      }
+      @keyframes backgroundScroll {
+      from {
+      background-position: 0 0;
+      }
+      to {
+      background-position: -99999999px 0;
+      }
+      }
+   </style>
+   <body>
+      <body style="background: #f0f0f0;">
+         <!---animation-->
+         <section class="car-animation pt-5 pb-3" style="background:url(https://res.cloudinary.com/dy7vswxyy/image/upload/v1600847490/roadside_pqrcpo.png);background-repeat: no-repeat;background-size: cover;background-position: bottom;">
+            <div id="cloud-scroll"></div>
+            <div class="main pt-5">
+               <div class="car-main">
+                  <div class="car">
+                     <img src="https://res.cloudinary.com/dy7vswxyy/image/upload/v1600847477/car2_mgucun.png" width="200px" height="100%">
+                  </div>
+                  <div class="koleso left">
+                     <img src="https://res.cloudinary.com/dy7vswxyy/image/upload/v1600847479/car_wheel_PNG23306_qx5ayg.png" width="40px" height="40px">
+                  </div>
+                  <div class="koleso right">
+                     <img src="https://res.cloudinary.com/dy7vswxyy/image/upload/v1600847479/car_wheel_PNG23306_qx5ayg.png" width="40px" height="40px">
+                  </div>
+               </div>
+               <h4 class="title text-center">Car Price Prediction</h4>
+            </div>
+         </section>
+         <div class="user-ragistration">
+            <div class="container register">
+               <div class="row">
+                  <div class="col-md-3 register-left">
+                     <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+                     <h3>Welcome</h3>
+                     <p>You are few seconds away from knowing the buyning price of your car!</p>
+                  </div>
+                  <div class="col-md-9 register-right">
+                     <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                           <h3 class="register-heading">Prcie features</h3>
+                           <form action="{% url 'result' %}">
+                              {% csrf_token %}
+                              <div class="row register-form">
+                                 <div class="col-md-6">
+                                    1 : <input type='text' name='1'></input><br/>
+                                    <br/>
+                                    2 : <input type='text' name='2'></input><br/>
+                                    <br/>
+                                    3 : <input type='text' name='3'></input><br/>
+                                    <br/>
+                                    4 : <input type='text' name='4'></input><br/>
+                                    <br/>
+                                    5 : <input type='text' name='5'></input><br/>
+                                    <br/>
+                                    6 : <input type='text' name='6'></input><br/>
+                                    <br/>
+                                    7 : <input type='text' name='7'></input><br/>
+                                    <br/>
+                                    8 : <input type='text' name='8'></input><br/>
+                                    <br/>
+                                    9 : <input type='text' name='9'></input><br/>
+                                    <br/>
+                                    10 : <input type='text' name='10'></input><br/>
+                                    <br/>
+                                    11 : <input type='text' name='11'></input><br/>
+                                    <br/>
+                                    12 : <input type='text' name='12'></input><br/>
+                                    <br/>
+                                 </div>
+                                 <div class="col-md-6">
+                                    13 : <input type='text' name='13'></input><br/>
+                                    <br/>
+                                    14 : <input type='text' name='14'></input><br/>
+                                    <br/>
+                                    15 : <input type='text' name='15'></input><br/>
+                                    <br/>
+                                    16 : <input type='text' name='16'></input><br/>
+                                    <br/>
+                                    17 : <input type='text' name='17'></input><br/>
+                                    <br/>
+                                    18 : <input type='text' name='18'></input><br/>
+                                    <br/>
+                                    19 : <input type='text' name='19'></input><br/>
+                                    <br/>
+                                    20 : <input type='text' name='20'></input><br/>
+                                    <br/>
+                                    21 : <input type='text' name='21'></input><br/>
+                                    <br/>
+                                    22 : <input type='text' name='22'></input><br/>
+                                    <br/>
+                                    23 : <input type='text' name='23'></input><br/>
+                                    <br/>
+                                    <input type="submit" name="" value="Login"/ class="btn bg-success"><br/>
+                                 </div>
+                              </div>
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         
+         
+         <script src="{% static 'price/js/popper.min.js' %}"></script>
+         <script src="{% static 'price/js/jquery.min.js' %}"></script> 
+   </body>
+   </body>
+</html>
